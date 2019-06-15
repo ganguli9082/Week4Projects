@@ -14,11 +14,7 @@ public class Week4Projects {
 		
 		//Trying to do the OOD way
 		final double MAX_PTS= 500;
-		int row = 4;
-		int col = 2;
-		int length = 8;
 		
-			Scanner scan = new Scanner(System.in);
 			
 		
 		
@@ -26,9 +22,9 @@ public class Week4Projects {
 			
 			
 			Grades.add(new Grade(45,70));
-			Grades.add(new Grade(45,60));
-			Grades.add(new Grade(45,50));
-			Grades.add(new Grade(45,30));
+			Grades.add(new Grade(45,75));
+			Grades.add(new Grade(45,75));
+			Grades.add(new Grade(45,75));
 			double avg = 0;
 			double sum = 0;
 			double score = 0;
@@ -79,20 +75,29 @@ public class Week4Projects {
 			
 			int StudentAvg= (int) Math.round(avg);
 			double ThisStudent = sum;
+			double Student2 = 300;
+			double Student3 = 100;
+			double Student4 = 100;
+			double Student5 = 300;
+			double Student6 = 250;
+			double Student7 = 490;
+			double Student8 = 210;
+			double Student9 = 290;
+			double Student10 = 370;
 			double ClassAvg = 0;
 			
 			
 			ArrayList<FinalScore> FinalScores = new ArrayList<FinalScore>();
 			FinalScores.add(new FinalScore(ThisStudent));
-			FinalScores.add(new FinalScore(440));
-			FinalScores.add(new FinalScore(400));
-			FinalScores.add(new FinalScore(200));
-			FinalScores.add(new FinalScore(300));
-			FinalScores.add(new FinalScore(250));
-			FinalScores.add(new FinalScore(490));
-			FinalScores.add(new FinalScore(210));
-			FinalScores.add(new FinalScore(290));
-			FinalScores.add(new FinalScore(370));
+			FinalScores.add(new FinalScore(Student2));
+			FinalScores.add(new FinalScore(Student3));
+			FinalScores.add(new FinalScore(Student4));
+			FinalScores.add(new FinalScore(Student5));
+			FinalScores.add(new FinalScore(Student6));
+			FinalScores.add(new FinalScore(Student7));
+			FinalScores.add(new FinalScore(Student8));
+			FinalScores.add(new FinalScore(Student9));
+			FinalScores.add(new FinalScore(Student10));
 			
 			Iterator<FinalScore> itor = FinalScores.iterator();
 			double MAX = 10;
@@ -110,7 +115,7 @@ public class Week4Projects {
  
 			//Couldn't figure out how to calculate Stdev from the ArrayList
 			
-			double FScores[]= {ThisStudent, 440, 400, 200, 300, 250, 490, 210, 290, 370};
+			double FScores[]= {ThisStudent, Student2, Student3, Student4, Student5, Student6, Student7, Student8, Student9, Student10};
 			for (int i = 0; i<FScores.length; i++)
 			{
 				sd += (Math.pow(FScores[i]-ClassAvg, 2))/FScores.length;	
@@ -125,44 +130,48 @@ public class Week4Projects {
 			int ClassAverage = (int) Math.round(ClassAvg);
 			int StandardDev = (int) Math.round(Stdev);
 			
-			while (StandardDev <= 50 && ClassAverage < 350) 
-				{
-				System.out.println("A is " + (ClassAverage + (2*StandardDev)));
-				System.out.println("B is " + (ClassAverage + StandardDev));
-				System.out.println("C is " + ClassAverage);
-				System.out.println("D is " + (ClassAverage - StandardDev));
-				System.out.println("F is " + (ClassAverage - (2*StandardDev)));
-				}
-			while (StandardDev <= 50 && ClassAverage < 350) 
-					{
-					if (sum>=ClassAverage + (2*StandardDev)) 
+			
+			System.out.println("If class avg and <350 and Stdev<=50");
+			System.out.println("A is " + (ClassAverage + (2*StandardDev)));
+			System.out.println("B is " + (ClassAverage + StandardDev));
+			System.out.println("C is " + ClassAverage);
+			System.out.println("D is " + (ClassAverage - StandardDev));
+			System.out.println("F is " + (ClassAverage - (2*StandardDev)));
+			
+			
+			if (StandardDev <= 50 && ClassAverage <= 350) 
 						{
-						Curvegrade = "A";
-						System.out.println("Final score is " + Curvegrade);
-						} 
-						else if (ClassAverage + (2*StandardDev)> sum && StudentAvg >= ClassAverage + StandardDev)
+							if (ThisStudent >= ClassAverage + (2*StandardDev)) 
+							{
+								Curvegrade = "A";
+								System.out.println("Final score is " + Curvegrade);
+							} 
+							else if (ClassAverage + (2*StandardDev)> ThisStudent && ThisStudent >= ClassAverage + StandardDev)
 							{
 							Curvegrade = "B";
 							System.out.println("Final score is " + Curvegrade);
 							} 
-						else if (ClassAverage + StandardDev > sum && sum>= ClassAverage) 
+							else if (ClassAverage + StandardDev > ThisStudent && ThisStudent>= ClassAverage) 
 							{
 							Curvegrade = "C";
 							System.out.println("Final score is " + Curvegrade);
 							} 
-						else if (ClassAverage > sum && sum>= ClassAverage - StandardDev) 
+							else if (ClassAverage > ThisStudent && ThisStudent>= ClassAverage - StandardDev) 
 							{
 							Curvegrade = "D";
 							System.out.println("Final score is " + Curvegrade);
 							} 
-						else if (sum < ClassAverage - (2*StandardDev))
+							else if (ThisStudent < ClassAverage - (2*StandardDev))
 							{
 							Curvegrade = "F";
 							System.out.println("Final score is " + Curvegrade);
 							}
 						}
 					
-					if (sum>= 450) 
+						
+			else
+						{
+						if (sum>= 450) 
 							{
 							Curvegrade = "A";
 							System.out.println("Final score is " + Curvegrade);
@@ -187,6 +196,7 @@ public class Week4Projects {
 							Curvegrade = "F";
 							System.out.println("Final score is " + Curvegrade);
 							}
+					}
 			}
 
 			
@@ -194,5 +204,3 @@ public class Week4Projects {
 	
 	
 	}
-
-
